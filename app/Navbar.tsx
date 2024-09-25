@@ -1,8 +1,7 @@
-// components/Navbar.tsx
 "use client";
 import Link from "next/link";
+import { HomeIcon } from "lucide-react"; // Using lucide-react for a nice home icon
 
-// Navbar component with swatches containing names
 const Navbar = () => {
   const cursors = [
     { name: "Bubbles", color: "bg-blue-500", link: "/bubbles" },
@@ -39,7 +38,15 @@ const Navbar = () => {
 
   return (
     <nav className="bg-gray-900 text-white p-4 sticky top-0 z-10 overflow-x-auto whitespace-nowrap scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-800">
-      <div className="flex space-x-6">
+      <div className="flex space-x-6 items-center">
+        {/* Home Button */}
+        <Link href="/">
+          <div className="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-700 rounded-full bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-white w-12 h-12 justify-center">
+            <HomeIcon className="w-6 h-6" />
+          </div>
+        </Link>
+
+        {/* Cursor Trail Swatches */}
         {cursors.map((cursor) => (
           <Link key={cursor.name} href={cursor.link}>
             <div className="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-700 rounded-md">
